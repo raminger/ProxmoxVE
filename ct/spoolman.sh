@@ -41,7 +41,7 @@ function update_script() {
     curl -fsSL "https://github.com/Donkie/Spoolman/releases/download/${RELEASE}/spoolman.zip" -o $(basename "https://github.com/Donkie/Spoolman/releases/download/${RELEASE}/spoolman.zip")
     $STD unzip spoolman.zip -d spoolman
     cd spoolman
-    $STD pip3 install -r requirements.txt
+    $STD pip3 install --upgrade --ignore-installed -r requirements.txt
     curl -fsSL "https://raw.githubusercontent.com/Donkie/Spoolman/master/.env.example" -o ".env"
     echo "${RELEASE}" >/opt/${APP}_version.txt
     msg_ok "Updated ${APP} to ${RELEASE}"
